@@ -18,4 +18,12 @@
         border: solid 2px $rouge;
         font-weight: bold;
     }
+    .erreur{
+        background-color: $rouge; 
+        font-weight: bold;
+        padding: 3px;
+        margin-bottom: 4px;
+        border: solid 2px $noir;
+        border-radius: 25px;
+    }
 }

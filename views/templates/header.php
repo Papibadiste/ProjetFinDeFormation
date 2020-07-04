@@ -19,14 +19,14 @@
                     <div class="liens ">
                         <div class="row ">
                             <div class="d-flex justify-content-around liensdroite">
-                                <a class="liensdroite2 " href=""> Connexion </a> 
+                                <a class="liensdroite2 " href="<?php echo BASE_URL; ?>user/connection"> Connexion </a> 
                                 <a class="liensdroite2 " href="<?php echo BASE_URL; ?>user/inscription">Inscription</a>
                             </div>
                        
                         </div>
                        
                     </div>
-                    <div class="liens  ">
+                    <div class="liens">
                        <a href="">Voir une histoire aléatoire</a>
                     </div>
                 
