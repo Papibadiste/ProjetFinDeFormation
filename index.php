@@ -4,9 +4,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-define('BASE_URL', '/ProjetFinDeFormation/code/');
+define('BASE_URL', '/ProjetFinDeFormation/');
 
-$requestUri = str_replace('/ProjetFinDeFormation/code/', '', $_SERVER['REQUEST_URI']);
+$requestUri = str_replace('/ProjetFinDeFormation/', '', $_SERVER['REQUEST_URI']);
 
 // On sépare les paramètres de la requête
 $requestParams = explode('/', $requestUri);

@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 -- Base de données : `projet_final`
 --
 
+CREATE DATABASE IF NOT EXISTS `projet_final` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `projet_final`;
+
 -- --------------------------------------------------------
 
 --

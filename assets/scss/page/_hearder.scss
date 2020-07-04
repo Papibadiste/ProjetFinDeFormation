@@ -1,0 +1,41 @@
+header{
+    background-color: $vert;
+
+    .liens{
+        text-align: center ;
+        margin: 24px;
+
+        .liensdroite{
+            
+          width: 100%;
+        }
+        .liensdroite2{
+            min-width: 135px;
+            max-height: 53px;
+        }
+        a{
+            background-color: $jaune;
+            color: $noir;
+            font-size: 25px;
+            border-radius: 10px;
+            padding: 8px;
+            border: solid 2px $jaune;
+            
+        }
+        a:hover{
+            text-decoration: none;
+            font-weight: bold;
+            border: solid 2px $rouge;
+            color: $noir;
+            
+        }
+    }
+    
+    
+    .img{
+        width: 100% ;
+        
+        
+    }
+    
+}
