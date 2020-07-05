@@ -22,7 +22,7 @@
 
     <main class="container-fluid ">
         <div class="row">
-            <div class="col-6 offset-3 inscription">
+            <div class="col-sm-6 col-10 offset-sm-3 offset-1 inscription">
                 <h2 class="text-center">
                     Inscription
                 </h2>

@@ -6,7 +6,7 @@ spl_autoload_register(function ($class) {
 
 function inscriptionAction()
 {
-
+    session_start();
     if (isset($_POST['forminscription'])) {
 
        
@@ -56,7 +56,7 @@ function inscriptionAction()
 
 function connectionAction()
 {
-    
+    session_start();
     if (isset($_POST['formconnection'])) {
 
         $email = htmlspecialchars($_POST['email']);
@@ -68,6 +68,7 @@ function connectionAction()
             $users = new Users();
             $userexist = $users->verifMailConnection($connection,$email);
             if($userexist && password_verify($pass, $userexist['mdp'])){  
+                
                 $_SESSION['id']= $userexist['id'];
                 $_SESSION['mail'] = $userexist['mail'];
                 $_SESSION['pseudo'] = $userexist['pseudo'];

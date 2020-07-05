@@ -12,6 +12,7 @@ header{
         .liensdroite2{
             min-width: 135px;
             max-height: 53px;
+            margin-left: 3px ;
         }
         a{
             background-color: $jaune;
@@ -34,8 +35,16 @@ header{
     
     .img{
         width: 100% ;
-        
+        min-height: 200px;
         
     }
+
     
+    
+}
+@media (max-width: 540px) {
+    .img{
+        padding: 0px !important;
+    }
+   
 }

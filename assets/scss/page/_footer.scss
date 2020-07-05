@@ -11,3 +11,12 @@ footer{
         padding: 15px;
     }
 }
+@media (max-width: 540px) {
+    .none{
+        display: none !important;
+    }
+    .flex{
+        display: flex;
+        justify-content: center !important;
+    }
+}
