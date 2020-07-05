@@ -85,3 +85,11 @@ function connectionAction()
     }
     require('views/utilisateur/connection.php');
 }
+
+function deconnexionAction()
+{
+    session_start();
+    session_destroy();
+    header('Location:' . BASE_URL .'');
+
+}

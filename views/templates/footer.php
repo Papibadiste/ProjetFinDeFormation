@@ -11,7 +11,7 @@
                 
                 </div>
             </div>
-            <div class="col-sm-4 col-12 d-flex justify-content-end none">
+            <div class="col-sm-4 col-12 d-flex justify-content-end nonef">
                 <img class="img" src="<?php echo BASE_URL; ?>assets\img\multisport.png">
             </div>
 
