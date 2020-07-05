@@ -51,7 +51,7 @@ function inscriptionAction()
             $erreur = 'veuillez remplir tous les champs';
         }
     }
-    require('views\utilisateur\inscription.php');
+    require('views/utilisateur/inscription.php');
 }
 
 function connectionAction()
@@ -83,5 +83,5 @@ function connectionAction()
             $erreur = 'veuillez remplir tous les champs';
         }
     }
-    require('views\utilisateur\connection.php');
+    require('views/utilisateur/connection.php');
 }
