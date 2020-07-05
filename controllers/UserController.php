@@ -21,8 +21,9 @@ function inscriptionAction()
                     $bdd        = new Bdd();
                     $connection = $bdd->getConnection();
                     $users = new Users();
-                    $cmail = $users->verifMail($connection,$email);
-                    if($cmail == 0){
+                    $reqmail = $users->verifMail($connection,$email);
+                    $mailexist = $reqmail->rowCount();
+                    if($mailexist == 0){
                         $pass = htmlspecialchars($_POST['Password']);
                         $vpass = htmlspecialchars($_POST['VPassword']);
                         if ($pass == $vpass){
@@ -66,7 +67,8 @@ function connectionAction()
             $bdd        = new Bdd();
             $connection = $bdd->getConnection();
             $users = new Users();
-            $userexist = $users->verifMailConnection($connection,$email);
+            $reqmail = $users->verifMailConnection($connection,$email);
+            $userexist = $reqmail->fetch();
             if($userexist && password_verify($pass, $userexist['mdp'])){  
                 
                 $_SESSION['id']= $userexist['id'];

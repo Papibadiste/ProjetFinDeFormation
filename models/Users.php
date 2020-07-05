@@ -5,8 +5,8 @@ class Users
     {
         $reqmail = $bdd->prepare("SELECT * FROM utilisateur WHERE mail = ?");
         $reqmail->execute(array($email));
-        $mailexist = $reqmail->rowCount();
-        return $mailexist;
+        
+        return $reqmail;
     }
     public function inscription($connection, $email, $pseudo, $hashedpass)
     {
@@ -20,8 +20,8 @@ class Users
     public function verifMailConnection($bdd, $email)
     {
         $reqmail = $bdd->query('SELECT * FROM utilisateur WHERE mail = "'. $email .'"');
-        $userexist = $reqmail->fetch();
-        return $userexist;
+        
+        return $reqmail;
     }
     
 }
