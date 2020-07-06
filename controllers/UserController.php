@@ -67,7 +67,7 @@ function connectionAction()
             $bdd        = new Bdd();
             $connection = $bdd->getConnection();
             $users = new Users();
-            $reqmail = $users->verifMailConnection($connection,$email);
+            $reqmail = $users->verifMail($connection,$email);
             $userexist = $reqmail->fetch();
             if($userexist && password_verify($pass, $userexist['mdp'])){  
                 

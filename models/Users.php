@@ -17,11 +17,5 @@ class Users
             'mdp' => $hashedpass
         ));
     }
-    public function verifMailConnection($bdd, $email)
-    {
-        $reqmail = $bdd->query('SELECT * FROM utilisateur WHERE mail = "'. $email .'"');
-        
-        return $reqmail;
-    }
     
 }
