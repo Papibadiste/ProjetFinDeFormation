@@ -7,8 +7,8 @@
                     <nav class="liens ">
                         <div>
                             <div class="d-flex justify-content-around liensdroite">
-                                <a class="liensdroite2 " href="<?php echo BASE_URL; ?>"> Accueil </a>
-                                <a class="liensdroite2 " href="<?php echo BASE_URL; ?>">Profil</a>
+                                <a class="liensgauche " href="<?php echo BASE_URL; ?>"> Accueil </a>
+                                <a class="liensgauche " href="<?php echo BASE_URL; ?>">Profil</a>
                             </div>
 
                         </div>
@@ -26,7 +26,7 @@
 
 
             </div>
-            <div class="col-lg-4 col-md-6 col-12 img">
+            <div class="col-lg-4 col-md-6 col-12">
                 <a href="<?php echo BASE_URL; ?>"> <img class="img" src="<?php echo BASE_URL; ?>assets/img/woman-run.jpg"> </a>
             </div>
 

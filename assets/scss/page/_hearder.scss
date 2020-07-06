@@ -1,13 +1,18 @@
 header{
     background-color: $vert;
+    position: relative;
+    display: block;
 
     .liens{
         text-align: center ;
-        margin: 24px;
+        margin: 20px;
 
         .liensdroite{
             
           width: 100%;
+        }
+        .liensgauche{
+            padding: 3px 15px;
         }
         .liensdroite2{
             min-width: 135px;
@@ -35,7 +40,7 @@ header{
     
     .img{
         width: 100% ;
-        min-height: 200px;
+        height: 100%; 
         
     }
 
