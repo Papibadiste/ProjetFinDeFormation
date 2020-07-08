@@ -7,4 +7,12 @@ class Photo
         
         return $reqphoto;
     }
+    public function ajoutPhoto($connection,$id_histoire,$source,$emplacement){
+        $req = $connection->prepare("INSERT INTO photo (id_histoire, emplacement, source) VALUES(:id_histoire, :emplacement, :source)");
+        $req->execute(array(
+            'id_histoire' => $id_histoire,
+            'emplacement' => $emplacement,
+            'source' => $source
+        ));
+    }
 }
