@@ -36,14 +36,8 @@
                                 <label class="ligne" for="categorie">Catégorie:</label>
                                     <select class="form-control-sm ligne" name="categorie" id="categorie">
                                         <option selected disabled hidden>Catégorie</option>
-                                        <option>Football</option>
-                                        <option>Basket-ball</option>
-                                        <option>Athlétisme</option>
-                                        <option>Musculation</option>
-                                        <option>Tennis</option>
-                                        <option>Course à pied</option>
-                                        <option>Sport Collectif</option>
-                                        <option>Sport Individuel</option>
+                                        <option value="Sport Collectif">Sport Collectif</option>
+                                        <option value="Sport Individuel">Sport Individuel</option>
                                         
                                     </select>
                                 </div>

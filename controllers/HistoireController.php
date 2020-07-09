@@ -27,19 +27,31 @@ function ajouterhistoireAction()
                     $reqtitre = $histoire->tableauUtilisateur($connection, $titre, $_SESSION['id']);
                     $titreexist = $reqtitre->rowCount();
                     if ($titreexist == 0) {
-                        $categorie = htmlspecialchars($_POST['categorie']);
-                        $paragraphe1 = htmlspecialchars($_POST['paragraphe1']);
+
+
+                        //histoire
                         $date_creation = date('Y/m/d');
                         $histoire->ajoutHistoire($connection, $titre, $_SESSION['id'], $date_creation);
+
+                        //Trouver l'id histoire de l'histoire qui vient d'etre ajouté
                         $reqiduser = $histoire->tableauUtilisateur($connection, $titre, $_SESSION['id']);
-                        $userexist = $reqiduser->fetch();
-                        $photo->ajoutPhoto($connection, $userexist['id'], $target_file, $emplacement);
+                        $histexist = $reqiduser->fetch();
+
+                        //Categorie
+                        $categorie = htmlspecialchars($_POST['categorie']);
+                        $categorieclass = new Categorie;
+                        $categorieid = $categorieclass->trouverCategorie($connection, $categorie);
+                        $categorieid = $categorieid->fetch();
+                        $categorieclass->ajoutCategorie($connection, $histexist['id'], $categorieid['id']);
+
+                        //Photo
+                        $photo->ajoutPhoto($connection, $histexist['id'], $target_file, $emplacement);
                         move_uploaded_file($_FILES["photop1"]["tmp_name"], $target_file);
+
+                        //Paragraphe
+                        $paragraphe1 = htmlspecialchars($_POST['paragraphe1']);
                         $paragraphe = new Paragraphe();
-                        $paragraphe->ajoutParagraphe($connection,$userexist['id'],$paragraphe1,$emplacement);
-                        $categorie = new Categorie;
-                        $categorie -> trouverCategorie();
-                        $categorie -> ajoutCategorie($connection,$userexist['id'],$categorie);
+                        $paragraphe->ajoutParagraphe($connection, $histexist['id'], $paragraphe1, $emplacement);
                     } else {
                         $erreur = "veuillez changer le titre de votre histoire car vous en avez deja une à ce nom";
                     }
@@ -47,23 +59,69 @@ function ajouterhistoireAction()
                     $erreur = "veuillez changer le nom de l'image";
                 }
 
+
+
+
                 // La suite pour la paragraphe2
                 if (!empty($_POST['paragraphe2']) and !empty($_FILES['photop2'])) {
+                    $emplacement = 2;
                     $paragraphe2 = htmlspecialchars($_POST['paragraphe2']);
                     $target_dir = "assets/imghistoire/";
                     $target_file = $target_dir . basename($_FILES['photop2']["name"]);
                     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    echo "P2";
+                    if ($imageFileType == "jpg" or $imageFileType == "png" or $imageFileType == "jpeg" and $_FILES["photoplat"]["size"] > 1000000) {
+                        $photo = new Photo();
+                        $reqphoto = $photo->verifPhoto($connection, $target_file);
+                        $photoexist = $reqphoto->rowCount();
+                        if ($photoexist == 0) {
+
+                            //Photo
+                            $photo->ajoutPhoto($connection, $histexist['id'], $target_file, $emplacement);
+                            move_uploaded_file($_FILES["photop2"]["tmp_name"], $target_file);
+
+                            //Paragraphe
+                            $paragraphe2 = htmlspecialchars($_POST['paragraphe2']);
+                            $paragraphe = new Paragraphe();
+                            $paragraphe->ajoutParagraphe($connection, $histexist['id'], $paragraphe2, $emplacement);
+                        } else {
+                            $erreur = "veuillez changer le nom de l'image numero 2";
+                        }
+                    } else {
+                        $erreur = "veuillez changer le type d'image numero 2 en jpg,png ou jpeg";
+                    }
                 }
+
+
+
+
                 // La suite pour la paragraphe3
                 if (!empty($_POST['paragraphe3']) and !empty($_FILES['photop3'])) {
-                    $paragraphe3 = htmlspecialchars($_POST['paragraphe3']);
+
                     $target_dir = "assets/imghistoire/";
                     $target_file = $target_dir . basename($_FILES['photop3']["name"]);
                     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    echo "P3";
+                    if ($imageFileType == "jpg" or $imageFileType == "png" or $imageFileType == "jpeg" and $_FILES["photoplat"]["size"] > 1000000) {
+                        $photo = new Photo();
+                        $reqphoto = $photo->verifPhoto($connection, $target_file);
+                        $photoexist = $reqphoto->rowCount();
+                        if ($photoexist == 0) {
+
+                            //Photo
+                            $photo->ajoutPhoto($connection, $histexist['id'], $target_file, $emplacement);
+                            move_uploaded_file($_FILES["photop3"]["tmp_name"], $target_file);
+
+                            //Paragraphe
+                            $paragraphe3 = htmlspecialchars($_POST['paragraphe3']);
+                            $paragraphe = new Paragraphe();
+                            $paragraphe->ajoutParagraphe($connection, $histexist['id'], $paragraphe3, $emplacement);
+                        } else {
+                            $erreur = "veuillez changer le nom de l'image numero 3";
+                        }
+                    } else {
+                        $erreur = "veuillez changer le type d'image numero 3 en jpg,png ou jpeg";
+                    }
                 }
-            }else{
+            } else {
                 $erreur = "veuillez changer le type d'image en jpg,png ou jpeg";
             }
         } else {

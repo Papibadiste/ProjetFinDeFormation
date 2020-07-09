@@ -1,17 +1,19 @@
 <?php
 class Categorie
 {
-    public function trouverCategorie(){
-
+    public function trouverCategorie($connection,$categorie){
+        $reqcategorie = $connection->prepare("SELECT * FROM categorie WHERE sport = ? ");
+        $reqcategorie->execute(array($categorie));
+        
+        return $reqcategorie;
     }
 
     
-    public function ajoutCategorie($connection,$categorie,$id_histoire){
-        $req = $connection->prepare("INSERT INTO histoire (id_utilisateur, titre, date_creation) VALUES(:id_utilisateur, :titre, :date_creation)");
+    public function ajoutCategorie($connection,$id_histoire,$categorieid){
+        $req = $connection->prepare("INSERT INTO histoire_categorie (id_histoire, id_categorie) VALUES(:id_histoire, :id_categorie)");
         $req->execute(array(
-            'id_utilisateur' => $id_utilisateur,
-            'titre' => $titre,
-            'date_creation' => $date
+            'id_histoire' => $id_histoire,
+            'id_categorie' => $categorieid
         ));
     }
     
