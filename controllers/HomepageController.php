@@ -16,6 +16,7 @@ function indexAction()
     $photo = new Photo();
     $paragraphe = new Paragraphe();
     $user = new Users();
+    $categorie = new Categorie();
 
     require('views/homepage/index.php');
 }

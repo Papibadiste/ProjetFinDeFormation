@@ -16,5 +16,14 @@ class Categorie
             'id_categorie' => $categorieid
         ));
     }
-    
+
+        public function recupCategorie($connection,$id_histoire){
+        $reqcategorie = $connection->prepare("SELECT * FROM histoire_categorie WHERE id_histoire = ? ");
+        $reqcategorie->execute(array($id_histoire));
+        $reqcategorie = $reqcategorie->fetch();
+        $reqcategorie2 = $connection->prepare("SELECT * FROM categorie WHERE id = ? ");
+        $reqcategorie2->execute(array($reqcategorie["id_categorie"]));
+        
+        return $reqcategorie2;
+    }
 }

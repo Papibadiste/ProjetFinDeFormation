@@ -42,8 +42,11 @@
                             $image = $image->fetch();
                             $text = $paragraphe->trouverParagraphe($connection, $row['id']);
                             $text = $text->fetch();
+                            $text = str_split($text['texte'],185);
                             $auteur = $user->trouverAuteur($connection, $row['id_utilisateur']);
                             $auteur = $auteur->fetch();
+                            $categorie2 = $categorie->recupCategorie($connection, $row['id']);
+                            $categorie2 = $categorie2->fetch();
 
 
                     ?>
@@ -53,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-2 img d-flex flex-column">
                                         <div class=" text-center ">
-                                            Categorie
+                                            <?php echo $categorie2['sport']; ?>
                                         </div>
                                         <img class="img" src="<?php echo $image['source']; ?>" alt="">
                                     </div>
@@ -68,7 +71,7 @@
                                         </div>
                                         <div class="resume">
                                             <p class="resume">
-                                                <?php echo $text['texte']; ?>
+                                                <?php echo $text[0]; ?>...
                                             </p>
                                         </div>
 
