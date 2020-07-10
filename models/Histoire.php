@@ -15,6 +15,12 @@ class Histoire
         
         return $reqtitre;
     }
+    public function listeHistoire($connection){
+        $reqtitre = $connection->prepare("SELECT * FROM histoire");
+        $reqtitre->execute();
+        
+        return $reqtitre;
+    }
     
     
 }

@@ -1,0 +1,52 @@
+.accueil{
+    .histoirevue{
+        
+        background-color: $bleu;
+        width: 100%;
+        border-radius: 25px;
+        border: solid 2px $jaune;
+        color: $noir;
+        font-size: 18px;
+        margin-top: 8px;
+        margin-bottom: 8px ;
+        padding-bottom: 5px;
+        .img{
+            width: 100%;
+            border-radius: 100%;
+            margin: 4px;
+        }
+        .resume{
+            font-size: 15px;
+            width: 100%;
+            word-break: break-word;
+            .p{
+                width: 100%;
+                word-break: break-word;
+                -webkit-hyphens: auto;
+                -moz-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+        }
+        .liens{
+            background-color: $jaune;
+            color: $noir;
+            border-radius: 10px;
+            font-weight: bold;
+            border: solid 2px $rouge;
+            padding: 3px;
+
+
+            
+        }
+        .liens{
+            text-decoration: none;
+            
+            
+        }
+        
+    }
+
+    }
+    

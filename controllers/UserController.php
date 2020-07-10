@@ -9,7 +9,7 @@ function inscriptionAction()
     session_start();
     if (isset($_POST['forminscription'])) {
 
-       
+
 
         if (!empty($_POST['email']) and !empty($_POST['pseudo']) and !empty($_POST['Password']) and !empty($_POST['VPassword'])) {
             $email = htmlspecialchars($_POST['email']);
@@ -21,27 +21,22 @@ function inscriptionAction()
                     $bdd        = new Bdd();
                     $connection = $bdd->getConnection();
                     $users = new Users();
-                    $reqmail = $users->verifMail($connection,$email);
+                    $reqmail = $users->verifMail($connection, $email);
                     $mailexist = $reqmail->rowCount();
-                    if($mailexist == 0){
+                    if ($mailexist == 0) {
                         $pass = htmlspecialchars($_POST['Password']);
                         $vpass = htmlspecialchars($_POST['VPassword']);
-                        if ($pass == $vpass){
+                        if ($pass == $vpass) {
                             $hashedpass = password_hash($pass, PASSWORD_DEFAULT);
 
-                            $users->inscription($connection,$email,$pseudo,$hashedpass);
+                            $users->inscription($connection, $email, $pseudo, $hashedpass);
                             header('Location: ' . BASE_URL . 'user/connection');
-
-
-                        }else{
+                        } else {
                             $erreur = "Les mots de passe ne sont pas identiques";
                         }
-
-                    }else{
+                    } else {
                         $erreur = 'Email deja utilisé';
                     }
-
-                        
                 } else {
                     $erreur = "Veuillez rentrer un email valide";
                 }
@@ -62,26 +57,23 @@ function connectionAction()
 
         $email = htmlspecialchars($_POST['email']);
         $pass = htmlspecialchars($_POST['Password']);
-        
+
         if (!empty($_POST['email']) and !empty($_POST['Password'])) {
             $bdd        = new Bdd();
             $connection = $bdd->getConnection();
             $users = new Users();
-            $reqmail = $users->verifMail($connection,$email);
+            $reqmail = $users->verifMail($connection, $email);
             $userexist = $reqmail->fetch();
-            if($userexist && password_verify($pass, $userexist['mdp'])){  
-                
-                $_SESSION['id']= $userexist['id'];
+            if ($userexist && password_verify($pass, $userexist['mdp'])) {
+
+                $_SESSION['id'] = $userexist['id'];
                 $_SESSION['mail'] = $userexist['mail'];
                 $_SESSION['pseudo'] = $userexist['pseudo'];
-                header('Location:' . BASE_URL .' ');
-                
-
-            }else{
+                header('Location:' . BASE_URL . ' ');
+            } else {
                 $erreur = 'Mauvais mots de passe';
             }
-
-        }else{
+        } else {
             $erreur = 'veuillez remplir tous les champs';
         }
     }
@@ -92,6 +84,16 @@ function deconnexionAction()
 {
     session_start();
     session_destroy();
-    header('Location:' . BASE_URL .'');
+    header('Location:' . BASE_URL . '');
+}
 
+
+function profilAction()
+{
+    session_start();
+    if (isset($_SESSION['id'])) {
+    } else {
+        header('Location:' . BASE_URL . 'user/connection');
+    }
+    require('views/utilisateur/profil.php');
 }

@@ -9,4 +9,11 @@ class Paragraphe
             'texte' => $text
         ));
     }
+    public function trouverParagraphe($connection, $id_histoire){
+        $position = 1 ;
+        $texthistoire = $connection->prepare("SELECT * FROM paragraphe WHERE id_histoire = ? AND emplacement = ?");
+        $texthistoire->execute(array($id_histoire,$position));
+        
+        return $texthistoire;
+    }
 }

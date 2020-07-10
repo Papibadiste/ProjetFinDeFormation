@@ -1,0 +1,25 @@
+.profil{
+    background-color: $bleu;
+    width: 100%;
+    border-radius: 25px;
+    border: solid 2px $jaune;
+    color: $noir;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px ;
+
+    .info{
+        font-weight: bold;
+    }
+    .info2{
+        margin-top: 10px;
+    }
+    .table{
+        border-radius: 25px;
+        width: 100%;
+    }
+    .fas{
+        font-size: 28px !important;
+        color: white !important;
+    }
+}

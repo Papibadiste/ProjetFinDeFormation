@@ -15,4 +15,11 @@ class Photo
             'source' => $source
         ));
     }
+    public function trouverPhoto($connection, $id_histoire){
+        $position = 1;
+        $photohistoire = $connection->prepare("SELECT * FROM photo WHERE id_histoire = ? AND emplacement = ?");
+        $photohistoire->execute(array($id_histoire,$position));
+        
+        return $photohistoire;
+    }
 }

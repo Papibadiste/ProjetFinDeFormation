@@ -17,5 +17,11 @@ class Users
             'mdp' => $hashedpass
         ));
     }
+    public function trouverAuteur($connection, $id_user){
+        $auteur = $connection->prepare("SELECT * FROM utilisateur WHERE id = ?");
+        $auteur->execute(array($id_user));
+        
+        return $auteur;
+    }
     
 }

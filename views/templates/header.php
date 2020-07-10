@@ -8,7 +8,7 @@
                         <div>
                             <div class="d-flex justify-content-around liensdroite">
                                 <a class="liensgauche " href="<?php echo BASE_URL; ?>"> Accueil </a>
-                                <a class="liensgauche " href="<?php echo BASE_URL; ?>">Profil</a>
+                                <a class="liensgauche " href="<?php echo BASE_URL; ?>user/profil">Profil</a>
                             </div>
 
                         </div>
