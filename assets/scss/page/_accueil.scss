@@ -1,4 +1,7 @@
 .accueil{
+    .recherche{
+        background-color: $vert;
+    }
     .histoirevue{
         
         background-color: $bleu;
@@ -14,6 +17,7 @@
             width: 100%;
             border-radius: 100%;
             margin: 4px;
+            margin-top: 10px;
         }
         .resume{
             font-size: 15px;

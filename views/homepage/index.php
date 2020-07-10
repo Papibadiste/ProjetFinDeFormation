@@ -24,7 +24,7 @@
         <div class="row ">
 
             <!-- systeme de recherche -->
-            <div class="col-2 bg-primary">
+            <div class="col-2 recherche">
                 sdfsdf
             </div>
             <div class="col-8 offset-1 ">
@@ -54,7 +54,7 @@
 
                             <div class="col-12 histoirevue">
                                 <div class="row">
-                                    <div class="col-2 img d-flex flex-column">
+                                    <div class="col-2 d-flex flex-column">
                                         <div class=" text-center ">
                                             <?php echo $categorie2['sport']; ?>
                                         </div>
