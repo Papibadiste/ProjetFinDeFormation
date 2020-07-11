@@ -42,7 +42,7 @@
                           $row["date_creation"] = DateTime::createFromFormat('Y-m-d', $row["date_creation"]); ?>
                         <tr>
                             <td scope='col'> <?php echo $row["titre"] ?>  </td>
-                            <td scope='col'> <?php echo $row["date_creation"]->format('d/m/Y');; ?> </td>
+                            <td scope='col'> <?php echo $row["date_creation"]->format('d/m/Y'); ?> </td>
                             <td scope='col'><a href="<?php echo BASE_URL; ?>histoire/histoirecomplete/<?php echo $row['id']; ?>"><i class="fas fa-arrow-circle-right"></i></a></td>
                         </tr>
                        <?php } ?>

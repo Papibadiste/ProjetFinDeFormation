@@ -148,6 +148,7 @@ function histoirecompleteAction()
     $histoire = new Histoire();
     $infohistoire =$histoire->trouverHistoire($connection, $histoireId);
     $infohistoire = $infohistoire->fetch();
+    $infohistoire['date_creation'] = DateTime::createFromFormat('Y-m-d', $infohistoire['date_creation']);
     $users = new Users();
     $auteur = $users->trouverAuteur($connection, $infohistoire['id_utilisateur']);
     $auteur = $auteur->fetch();
