@@ -2,10 +2,7 @@
 
 // Récupération de la requête
 
-
-define('BASE_URL', '/ProjetFinDeFormation/');
-
-$requestUri = str_replace('/ProjetFinDeFormation/', '', $_SERVER['REQUEST_URI']);
+include "config/base_url.php";
 
 // On sépare les paramètres de la requête
 $requestParams = explode('/', $requestUri);
