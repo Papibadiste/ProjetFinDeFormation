@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 03 juil. 2020 à 14:36
+-- Généré le : sam. 11 juil. 2020 à 11:44
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.6
 
@@ -20,9 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `projet_final`
 --
-
-CREATE DATABASE IF NOT EXISTS `projet_final` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `projet_final`;
 
 -- --------------------------------------------------------
 
@@ -48,6 +45,14 @@ CREATE TABLE `categorie` (
   `sport` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id`, `sport`) VALUES
+(7, 'Sport Collectif'),
+(8, 'Sport Individuel');
+
 -- --------------------------------------------------------
 
 --
@@ -58,8 +63,19 @@ CREATE TABLE `histoire` (
   `id` int(255) NOT NULL,
   `id_utilisateur` int(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
-  `date_creation` datetime NOT NULL
+  `date_creation` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `histoire`
+--
+
+INSERT INTO `histoire` (`id`, `id_utilisateur`, `titre`, `date_creation`) VALUES
+(25, 1, 'La campagne', '2020-07-09'),
+(26, 2, 'La montagne', '2020-07-10'),
+(28, 2, 'OUI MONSIEUR2', '2020-07-10'),
+(29, 2, 'OUI MONSIEUR3', '2020-07-10'),
+(30, 1, 'Aled', '2020-07-11');
 
 -- --------------------------------------------------------
 
@@ -72,6 +88,17 @@ CREATE TABLE `histoire_categorie` (
   `id_categorie` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `histoire_categorie`
+--
+
+INSERT INTO `histoire_categorie` (`id_histoire`, `id_categorie`) VALUES
+(25, 7),
+(26, 8),
+(28, 8),
+(29, 7),
+(30, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +110,18 @@ CREATE TABLE `note` (
   `note` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `note`
+--
+
+INSERT INTO `note` (`id`, `note`) VALUES
+(1, 0),
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 4),
+(6, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -93,8 +132,21 @@ CREATE TABLE `paragraphe` (
   `id` int(255) NOT NULL,
   `id_histoire` int(255) NOT NULL,
   `emplacement` varchar(255) NOT NULL,
-  `texte` varchar(255) NOT NULL
+  `texte` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `paragraphe`
+--
+
+INSERT INTO `paragraphe` (`id`, `id_histoire`, `emplacement`, `texte`) VALUES
+(5, 25, '1', 'paragraphe1'),
+(6, 25, '2', 'paragraphe2'),
+(7, 25, '2', 'paragraphe3'),
+(8, 26, '1', 'sdfsdfsdfsdf'),
+(9, 28, '1', 'sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf'),
+(10, 29, '1', 'sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf sdsdfsdfsdfsd sdfsdfsdfsdfsdf '),
+(11, 30, '1', 'Aled');
 
 -- --------------------------------------------------------
 
@@ -109,6 +161,19 @@ CREATE TABLE `photo` (
   `source` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `photo`
+--
+
+INSERT INTO `photo` (`id`, `id_histoire`, `emplacement`, `source`) VALUES
+(14, 25, '1', 'assets/imghistoire/1.png'),
+(15, 25, '2', 'assets/imghistoire/2.png'),
+(16, 25, '2', 'assets/imghistoire/3.png'),
+(17, 26, '1', 'assets/imghistoire/chef.png'),
+(19, 28, '1', 'assets/imghistoire/php-leader1.png'),
+(20, 29, '1', 'assets/imghistoire/net-MVC.png'),
+(21, 30, '1', 'assets/imghistoire/d9006.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +186,14 @@ CREATE TABLE `utilisateur` (
   `pseudo` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `mail`, `pseudo`, `mdp`) VALUES
+(1, 'oui@oui.fr', 'Papi', '$2y$10$uEGYGj63WnPLR76x6vF0veuRx5aLvUEi0aEUZIH.Wc2jFpj6sXwdW'),
+(2, 'non@non.fr', '0Papi', '$2y$10$eoiD6QdB2bmsbeJFtt3u1udytt2a1sbuc.s3X.hQInKICsg7PrVUy');
 
 -- --------------------------------------------------------
 
@@ -213,37 +286,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `histoire`
 --
 ALTER TABLE `histoire`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `paragraphe`
 --
 ALTER TABLE `paragraphe`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
