@@ -10,16 +10,23 @@ class Histoire
         ));
     }
     public function tableauUtilisateur($connection,$titre, $id_utilisateur){
-        $reqtitre = $connection->prepare("SELECT * FROM histoire WHERE titre = ? AND id_utilisateur = ?");
-        $reqtitre->execute(array($titre,$id_utilisateur));
+        $reqhistoire = $connection->prepare("SELECT * FROM histoire WHERE titre = ? AND id_utilisateur = ?");
+        $reqhistoire->execute(array($titre,$id_utilisateur));
         
-        return $reqtitre;
+        return $reqhistoire;
     }
     public function listeHistoire($connection){
-        $reqtitre = $connection->prepare("SELECT * FROM histoire");
-        $reqtitre->execute();
+        $reqhistoire = $connection->prepare("SELECT * FROM histoire");
+        $reqhistoire->execute();
         
-        return $reqtitre;
+        return $reqhistoire;
+    }
+    public function trouverHistoire($connection, $id_histoire){
+        $reqhistoire = $connection->prepare("SELECT * FROM histoire WHERE id = ?");
+        $reqhistoire->execute(array($id_histoire));
+        
+        
+        return $reqhistoire;
     }
     
     

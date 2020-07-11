@@ -123,6 +123,7 @@ function ajouterhistoireAction()
                         }
                     }
 
+                    $bravo ="bravo";
                
                 } else {
                     $erreur = "veuillez changer le type d'image en jpg,png ou jpeg";
@@ -135,4 +136,28 @@ function ajouterhistoireAction()
         header('Location:' . BASE_URL .'user/connection');
     }
     require('views/histoire/ajouterhistoire.php');
+}
+
+function histoirecompleteAction()
+{
+    $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
+    $requestParams = explode('/', $requestUri);
+    $histoireId     = isset($requestParams[2]) ? $requestParams[2] : null;
+    $bdd        = new Bdd();
+    $connection = $bdd->getConnection();
+    $histoire = new Histoire();
+    $infohistoire =$histoire->trouverHistoire($connection, $histoireId);
+    $infohistoire = $infohistoire->fetch();
+    $users = new Users();
+    $auteur = $users->trouverAuteur($connection, $infohistoire['id_utilisateur']);
+    $auteur = $auteur->fetch();
+    $categoriec = new Categorie();
+    $categorie = $categoriec->recupCategorie($connection,$histoireId);
+    $categorie = $categorie->fetch();
+    $paragraphe = new Paragraphe();
+    $listeparagraphe = $paragraphe ->listerParagraphe($connection, $histoireId);
+    $photo = new Photo();
+    $listephoto = $photo ->listerPhoto($connection, $histoireId);
+
+    require('views/histoire/histoirecomplete.php');
 }

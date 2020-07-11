@@ -22,4 +22,11 @@ class Photo
         
         return $photohistoire;
     }
+    public function listerPhoto($connection, $id_histoire){
+        
+        $photohistoire = $connection->prepare("SELECT * FROM photo WHERE id_histoire = ?");
+        $photohistoire->execute(array($id_histoire));
+        
+        return $photohistoire;
+    }
 }

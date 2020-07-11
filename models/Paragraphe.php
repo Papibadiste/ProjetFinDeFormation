@@ -16,4 +16,10 @@ class Paragraphe
         
         return $texthistoire;
     }
+    public function listerParagraphe($connection, $id_histoire){
+        $texthistoire = $connection->prepare("SELECT * FROM paragraphe WHERE id_histoire = ?");
+        $texthistoire->execute(array($id_histoire));
+        
+        return $texthistoire;
+    }
 }
