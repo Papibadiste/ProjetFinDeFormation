@@ -123,7 +123,7 @@ function ajouterhistoireAction()
                         }
                     }
 
-                    header('Location:' . BASE_URL . '');
+               
                 } else {
                     $erreur = "veuillez changer le type d'image en jpg,png ou jpeg";
                 }
