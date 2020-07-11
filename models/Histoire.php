@@ -28,6 +28,13 @@ class Histoire
         
         return $reqhistoire;
     }
+    public function trouverListeHistoire($connection, $id_utilisateur){
+        $reqhistoire = $connection->prepare("SELECT * FROM histoire WHERE id_utilisateur = ?");
+        $reqhistoire->execute(array($id_utilisateur));
+        
+        
+        return $reqhistoire;
+    }
     
     
 }

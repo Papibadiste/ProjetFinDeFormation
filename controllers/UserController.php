@@ -92,8 +92,13 @@ function profilAction()
 {
     session_start();
     if (isset($_SESSION['id'])) {
+        $bdd        = new Bdd();
+        $connection = $bdd->getConnection();
+        $histoire = new Histoire();
+        $listehistoire = $histoire->trouverListeHistoire($connection, $_SESSION['id']);
+        require('views/utilisateur/profil.php');
     } else {
         header('Location:' . BASE_URL . 'user/connection');
     }
-    require('views/utilisateur/profil.php');
+    
 }
