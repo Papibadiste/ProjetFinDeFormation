@@ -57,10 +57,10 @@
 
                             <div class="form-group">
                                 <h3>Paragraphe1</h3>
-                                <label class="ligne" for="paragraphe1">Texte du paragraphe1 (185 caractere max):</label> <br>
-                                <textarea class="ligne" name="paragraphe1" id="paragraphe1" rows="8"><?php if (isset($paragraphe1)) {
-                                                                                                            echo $paragraphe1;
-                                                                                                        } ?></textarea>
+                                <label class="ligne" for="paragraphe1">Texte du paragraphe1 (280 caractere max):</label> <br>
+                                <textarea class="ligne" name="paragraphe1" id="paragraphe1" rows="8" maxlength="280"><?php if (isset($paragraphe1)) {
+                                        echo $paragraphe1;
+                                    } ?></textarea>
                                 <label for="photop1">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop1" name="photop1">
 
@@ -68,10 +68,10 @@
 
                             <div class="form-group">
                                 <h3>Paragraphe2</h3>
-                                <label class="ligne" for="paragraphe2">Texte du paragraphe2 (185 caractere max):</label> <br>
-                                <textarea class="ligne" name="paragraphe2" id="paragraphe2" rows="8"><?php if (isset($paragraphe2)) {
-                                                                                                            echo $paragraphe2;
-                                                                                                        } ?></textarea>
+                                <label class="ligne" for="paragraphe2">Texte du paragraphe2 (280 caractere max):</label> <br>
+                                <textarea class="ligne" name="paragraphe2" id="paragraphe2" rows="8" maxlength="280"><?php if (isset($paragraphe2)) {
+                                        echo $paragraphe2;
+                                    } ?></textarea>
                                 <label for="photop2">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop2" name="photop2">
 
@@ -79,10 +79,11 @@
                             </div>
                             <div class="form-group">
                                 <h3>Paragraphe3</h3>
-                                <label class="ligne" for="paragraphe3">Texte du paragraphe3 (185 caractere max):</label> <br>
-                                <textarea class="ligne" name="paragraphe3" id="paragraphe3" rows="8"><?php if (isset($paragraphe3)) {
-                                                                                                            echo $paragraphe3;
-                                                                                                        } ?></textarea>
+                                <label class="ligne" for="paragraphe3">Texte du paragraphe3 (280 caractere max):</label> <br>
+                                <textarea class="ligne" name="paragraphe3" id="paragraphe3" rows="8" maxlength="280"><?php
+                                 if (isset($paragraphe3)) {
+                                        echo $paragraphe3;
+                                    } ?></textarea>
                                 <label for="photop3">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop3" name="photop3">
 
@@ -96,7 +97,9 @@
                             </div>
                             <?php if (isset($erreur)) { ?>
                                 <div class="d-flex justify-content-center ">
-                                    <div class="erreur"> <?php echo $erreur;    ?> </div>
+                                    <div class="erreur">
+                                        <?php echo $erreur;    ?>
+                                    </div>
                                 </div>
                             <?php } ?>
 

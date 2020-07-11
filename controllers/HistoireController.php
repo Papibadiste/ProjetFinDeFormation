@@ -140,6 +140,7 @@ function ajouterhistoireAction()
 
 function histoirecompleteAction()
 {
+    session_start();
     $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
     $requestParams = explode('/', $requestUri);
     $histoireId     = isset($requestParams[2]) ? $requestParams[2] : null;
