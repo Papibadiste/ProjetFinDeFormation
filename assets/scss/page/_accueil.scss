@@ -13,6 +13,13 @@
         margin-top: 8px;
         margin-bottom: 8px ;
         padding-bottom: 5px;
+       
+
+        .categorie{
+            font-weight: bold;
+    
+        }
+
         .img{
             width: 100%;
             border-radius: 100%;
@@ -32,9 +39,11 @@
                 -moz-hyphens: auto;
                 -ms-hyphens: auto;
                 hyphens: auto;
+
             }
 
         }
+
         .liens{
             background-color: $jaune;
             color: $noir;

@@ -53,7 +53,7 @@
                             <div class="col-12 histoirevue">
                                 <div class="row">
                                     <div class="col-lg-2 col-12 d-flex flex-column ">
-                                        <div class=" text-center ">
+                                        <div class=" text-center categorie">
                                             <?php echo $categorie2['sport']; ?>
                                         </div>
                                         <div class=" d-flex justify-content-center ">

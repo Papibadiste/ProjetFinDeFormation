@@ -12,16 +12,26 @@
     height: 200px;
   }
 
-  .swap {
-    display: flex;
-
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    &:nth-child(odd) {
-      flex-direction: row;
-    }
+  .text {
+    word-break: break-all;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
   }
 
+  .btn {
+    background-color: $jaune;
+    color: $noir;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 8px;
+    border: solid 2px $jaune;
+  }
+  .btn:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border: solid 2px $rouge;
+    color: $noir;
+  }
 }

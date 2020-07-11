@@ -27,18 +27,18 @@
                         <h2><?php echo $infohistoire['titre']; ?></h2>
                     </div>
                     <div class="col-6">Cree le <?php echo $infohistoire['date_creation']; ?> par <?php echo $auteur['pseudo']; ?></div>
-                    <div class="col-6 d-flex flex-row-reverse">Categorie: <?php echo $categorie['sport']; ?></div>
+                    <div class="col-6 d-flex flex-row-reverse ">Categorie: <?php echo $categorie['sport']; ?></div>
                     <!-- Boucle while pour afficher les paragraphes -->
                     <div class="col-12 ">
                         <div class="row ">
                             <?php while ($row = $listeparagraphe->fetch(PDO::FETCH_BOTH)) { ?>
                                 <?php while ($rowimg = $listephoto->fetch(PDO::FETCH_BOTH)) { ?>
 
-                                    <div class="col-4">
+                                    <div class="col-sm-4 col-12 d-flex justify-content-center justify-content-sm-start">
                                         <img src="<?php echo BASE_URL; ?><?php echo $rowimg['source'] ?>" alt="">
                                     </div>
-                                    <div class="col-8">
-                                        <?php echo $row['texte'] ?>
+                                    <div class="col-sm-8 col-12">
+                                        <div class="text d-flex justify-content-center justify-content-sm-start"> <?php echo $row['texte'] ?> </div>
                                     </div>
 
 
@@ -52,7 +52,7 @@
                         <div>Moyenne:</div>
                         <div>
                             <form method="POST">
-                                <label class="Vote" for="Note">Saisir une note:</label>
+                                <label class="ligne" for="Note">Saisir une note:</label>
                                 <select class="form-control-sm ligne" name="Note" id="Note">
                                     <option selected disabled hidden>Note</option>
                                     <option value="0">0</option>
@@ -63,7 +63,7 @@
                                     <option value="5">5</option>
 
                                 </select>
-                                
+                                <input type="submit" class="btn">
                             </form>
 
                         </div>
@@ -71,6 +71,7 @@
 
                 </div>
             </div>
+        </div>
         </div>
 
     </main>
