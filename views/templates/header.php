@@ -17,11 +17,11 @@
 
                 <?php } else { ?>
                     <nav class="liens">
-                        <a href="<?php echo BASE_URL; ?>"> Accueil </a>
+                        <a href=""> Accueil </a>
                     </nav>
                 <?php } ?>
                 <nav class="liens ">
-                    <a href="">Présentation du site</a>
+                    <a href="<?php echo BASE_URL; ?>presentation/">Présentation du site</a>
                 </nav>
 
 

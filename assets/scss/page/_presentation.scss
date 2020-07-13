@@ -1,0 +1,15 @@
+.presentation{
+    background-color: $bleu;
+    width: 100%;
+    border-radius: 25px;
+    border: solid 2px $jaune;
+    color: $noir;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    img{
+        width: 100%;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+}
