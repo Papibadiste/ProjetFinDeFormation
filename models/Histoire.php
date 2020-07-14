@@ -35,6 +35,10 @@ class Histoire
         
         return $reqhistoire;
     }
+    public function supprimerHistoire($connection, $histoireId){
+        $req = $connection->prepare("DELETE FROM histoire  WHERE id= $histoireId ");
+        $req->execute();
+    }
     
     
 }

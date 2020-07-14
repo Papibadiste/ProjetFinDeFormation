@@ -1,0 +1,57 @@
+.histoireback{
+    background-color: $bleu;
+    width: 100%;
+    border-radius: 25px;
+    border: solid 2px $jaune;
+    color: $noir;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px ;
+    .erreur{
+        background-color: $rouge; 
+        font-weight: bold;
+        padding: 3px;
+        margin-bottom: 4px;
+        border: solid 2px $noir;
+        border-radius: 25px;
+    }
+    .btn-valider{
+        background-color: $jaune;
+        margin-bottom: 10px;
+        margin-top: 6px;
+        border: solid 2px $jaune;
+    }
+    .btn-valider:hover{
+        border: solid 2px $rouge;
+        font-weight: bold;
+    }
+    h2{
+        margin-bottom :1%;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .ligne{
+        width: 100%;
+    }
+    a{
+        background-color: $jaune;
+        color: $noir;
+        font-size: 20px;
+        border-radius: 10px;
+        
+        border: solid 2px $jaune;
+        
+    }
+    a:hover{
+        text-decoration: none;
+        font-weight: bold;
+        border: solid 2px $rouge;
+        color: $noir;
+        
+    }
+    .retour{
+        margin-top: 25px;
+    }
+    
+} 
