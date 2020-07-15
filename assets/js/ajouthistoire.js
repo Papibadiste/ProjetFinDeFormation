@@ -1,5 +1,5 @@
 function modifParagraphe() {
-    console.log("oui");
+ 
     if (document.getElementById('paragraphejs2').style.display == 'block') {
         document.getElementById('paragraphejs2').style.display = 'none';
         document.getElementById('btn2').style.display = 'none';
@@ -19,7 +19,7 @@ function modifParagraphe() {
 
 function modifParagraphe2() {
     if (document.getElementById('paragraphejs3').style.display == 'block') {
-        console.log("oui4");
+    
         document.getElementById('paragraphejs3').style.display = 'none';
         document.getElementById('btn2').style.display = 'block';
         document.getElementById('btn3').style.display = 'block';
@@ -29,7 +29,7 @@ function modifParagraphe2() {
     }
     else {
 
-        console.log("oui2");
+  
         document.getElementById('paragraphejs3').style.display = 'block';
         document.getElementById('btn2').style.display = 'none';
         document.getElementById('btn3').style.display = 'none';
