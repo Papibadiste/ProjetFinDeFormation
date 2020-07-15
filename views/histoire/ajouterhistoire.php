@@ -59,35 +59,50 @@
                                 <h3>Paragraphe1</h3>
                                 <label class="ligne" for="paragraphe1">Texte du paragraphe1 (280 caractere max):</label> <br>
                                 <textarea class="ligne" name="paragraphe1" id="paragraphe1" rows="8" maxlength="280"><?php if (isset($paragraphe1)) {
-                                        echo $paragraphe1;
-                                    } ?></textarea>
+                                                                                                                            echo $paragraphe1;
+                                                                                                                        } ?></textarea>
                                 <label for="photop1">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop1" name="photop1">
 
                             </div>
 
-                            <div class="form-group">
+                            <div class="d-flex justify-content-center">
+                                <input type="button" id="btn1" class="btn btn-light" value="Ajouter un paragraphe" onclick="ajouterParagraphe()">
+                            </div>
+
+                            <div class=" form-group none1" id="paragraphejs2">
                                 <h3>Paragraphe2</h3>
                                 <label class="ligne" for="paragraphe2">Texte du paragraphe2 (280 caractere max):</label> <br>
                                 <textarea class="ligne" name="paragraphe2" id="paragraphe2" rows="8" maxlength="280"><?php if (isset($paragraphe2)) {
-                                        echo $paragraphe2;
-                                    } ?></textarea>
+                                                                                                                            echo $paragraphe2;
+                                                                                                                        } ?></textarea>
                                 <label for="photop2">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop2" name="photop2">
 
 
                             </div>
-                            <div class="form-group">
+
+                            <div class="d-flex justify-content-center">
+                                <input type="button" id="btn2" class="btn btn-light none1" value="Ajouter un paragraphe" onclick="ajouterParagraphe2()">
+                                <input type="button" id="btn3" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="enleverParagraphe()">
+                            </div>
+
+                            <div class="form-group none1" id="paragraphejs3">
                                 <h3>Paragraphe3</h3>
                                 <label class="ligne" for="paragraphe3">Texte du paragraphe3 (280 caractere max):</label> <br>
                                 <textarea class="ligne" name="paragraphe3" id="paragraphe3" rows="8" maxlength="280"><?php
-                                 if (isset($paragraphe3)) {
-                                        echo $paragraphe3;
-                                    } ?></textarea>
+                                                                                                                        if (isset($paragraphe3)) {
+                                                                                                                            echo $paragraphe3;
+                                                                                                                        } ?></textarea>
                                 <label for="photop3">Choisir une image</label>
                                 <input type="file" class="form-control-file" id="photop3" name="photop3">
 
                             </div>
+
+                            <div class="d-flex justify-content-center">
+                                <input type="button" id="btn4" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="enleverParagraphe2()">
+                            </div>
+
                             <div class="form-check">
                                 <input type="checkbox" name="chek" class="form-check-input" id="Validation">
                                 <label class="form-check-label" for="Validation">En décidant de m'inscrire j'accepte de partager mon histoire </label>
@@ -119,5 +134,6 @@
     ?>
 
 </body>
+<script src="<?php echo BASE_URL; ?>assets/js/ajouthistoire.js"></script>
 
 </html>

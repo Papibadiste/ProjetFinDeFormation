@@ -34,10 +34,10 @@
                             <?php while ($row = $listeparagraphe->fetch(PDO::FETCH_BOTH)) { ?>
                                 <?php while ($rowimg = $listephoto->fetch(PDO::FETCH_BOTH)) { ?>
 
-                                    <div class="col-sm-4 col-12 d-flex justify-content-center justify-content-sm-start">
+                                    <div class="col-sm-3 col-12 d-flex justify-content-center justify-content-sm-start">
                                         <img src="<?php echo BASE_URL; ?><?php echo $rowimg['source'] ?>" alt="">
                                     </div>
-                                    <div class="col-sm-8 col-12">
+                                    <div class="col-sm-9 col-12">
                                         <div class="text d-flex justify-content-center justify-content-sm-start"> <?php echo $row['texte'] ?> </div>
                                     </div>
 

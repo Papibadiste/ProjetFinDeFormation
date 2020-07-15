@@ -26,4 +26,10 @@
         font-size: 28px !important;
         color: white !important;
     }
+    @media (max-width: 540px) {
+        .nonep{
+            display: none !important;
+        }
+    }
 }
+
