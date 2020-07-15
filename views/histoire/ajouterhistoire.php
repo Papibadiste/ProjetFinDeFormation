@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <input type="button" id="btn1" class="btn btn-light" value="Ajouter un paragraphe" onclick="ajouterParagraphe()">
+                                <input type="button" id="btn1" class="btn btn-light" value="Ajouter un paragraphe" onclick="modifParagraphe()">
                             </div>
 
                             <div class=" form-group none1" id="paragraphejs2">
@@ -83,8 +83,8 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <input type="button" id="btn2" class="btn btn-light none1" value="Ajouter un paragraphe" onclick="ajouterParagraphe2()">
-                                <input type="button" id="btn3" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="enleverParagraphe()">
+                                <input type="button" id="btn2" class="btn btn-light none1" value="Ajouter un paragraphe" onclick="modifParagraphe2()">
+                                <input type="button" id="btn3" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="modifParagraphe()">
                             </div>
 
                             <div class="form-group none1" id="paragraphejs3">
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <input type="button" id="btn4" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="enleverParagraphe2()">
+                                <input type="button" id="btn4" class="btn btn-dark none1" value="Enlever un paragraphe" onclick="modifParagraphe2()">
                             </div>
 
                             <div class="form-check">
