@@ -161,5 +161,10 @@ function histoirecompleteAction()
     $photo = new Photo();
     $listephoto = $photo ->listerPhoto($connection, $histoireId);
 
+    if (isset($_POST['ajoutnote'])) {
+        echo $_POST['note'];
+    }
+
+
     require('views/histoire/histoirecomplete.php');
 }

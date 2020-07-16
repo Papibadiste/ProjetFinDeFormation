@@ -37,4 +37,15 @@
     border: solid 2px $rouge;
     color: $noir;
   }
+  .bg{
+    background-color: $jaune ;
+    border-radius: 20px;
+    border: solid 2px $noir;
+    margin-bottom: 5px;
+
+
+  }
+  .info{
+    margin-bottom: 5px;
+  }
 }

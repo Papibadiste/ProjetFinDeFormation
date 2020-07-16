@@ -17,7 +17,7 @@
 
                 <?php } else { ?>
                     <nav class="liens">
-                        <a href=""> Accueil </a>
+                        <a href="<?php echo BASE_URL; ?>"> Accueil </a>
                     </nav>
                 <?php } ?>
                 <nav class="liens ">
