@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jeCPA</title>
-    <meta name="description" content="LETSEAT Le goût par l'image">
-
-    <link rel="icon" href="">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/styles.min.css">
-</head>
+<?php
+include "views/templates/head.php"
+?>
 
 <body>
 
@@ -30,11 +21,15 @@
                     <form method="post" action="">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="ex:monmail@gmail.com" value="<?php if(isset ($email)){ echo $email;} ?>">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="ex:monmail@gmail.com" value="<?php if (isset($email)) {
+                                                                                                                                            echo $email;
+                                                                                                                                        } ?>">
                         </div>
                         <div class="form-group">
                             <label for="pseudo">Identifiant</label>
-                            <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="ex: PapiBadiste" value="<?php if(isset ($pseudo)){ echo $pseudo; } ?>">
+                            <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="ex: PapiBadiste" value="<?php if (isset($pseudo)) {
+                                                                                                                                        echo $pseudo;
+                                                                                                                                    } ?>">
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -55,9 +50,9 @@
                         <div class="d-flex justify-content-center">
                             <button type="submit" name="forminscription" class="btn btn-valider">Valider</button>
                         </div>
-                        <?php if(isset ($erreur)){ ?> <div class="d-flex justify-content-center ">
-                           <div class="erreur"> <?php echo $erreur;   ?> </div> <?php } ?>
-                        </div>
+                        <?php if (isset($erreur)) { ?> <div class="d-flex justify-content-center ">
+                                <div class="erreur"> <?php echo $erreur;   ?> </div> <?php } ?>
+                            </div>
 
 
                     </form>
@@ -73,4 +68,5 @@
     ?>
 
 </body>
+
 </html>
