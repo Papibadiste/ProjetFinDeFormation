@@ -17,6 +17,8 @@ function indexAction()
     $paragraphe = new Paragraphe();
     $user = new Users();
     $categorie = new Categorie();
+    $Note = new Note();
+    
 
     require('views/homepage/index.php');
 }

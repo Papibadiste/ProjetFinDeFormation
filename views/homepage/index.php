@@ -38,6 +38,23 @@ include "views/templates/head.php"
                             $auteur = $auteur->fetch();
                             $categorie2 = $categorie->recupCategorie($connection, $row['id']);
                             $categorie2 = $categorie2->fetch();
+                            $notelliste = $Note->listNote($connection, $row['id']);
+                            $calculnote['row'] = 0;
+
+                            if ($notelliste->rowCount() > 0) {
+
+                                while ($liste = $notelliste->fetch(PDO::FETCH_BOTH)) {
+                                    $noteid = $Note->trouverViaIdNote($connection, $liste['id_note']);
+                                    $note =  $noteid->fetch();
+                                    $calculnote['row'] = $calculnote['row'] + $note['note'];
+                                }
+                            }
+                            $notelliste = $notelliste->rowCount();
+                            echo $notelliste;
+                            if($notelliste > 0){
+                                $calculnote['row'] = $calculnote['row'] / $notelliste;
+                            }
+                            
                     ?>
 
 
@@ -56,7 +73,7 @@ include "views/templates/head.php"
                                         <div class="d-flex justify-content-between">
                                             <h3><?php echo $row['titre']; ?></h3>
                                             <div class="d-flex justify-content-center flex-column ">
-                                                ?/5
+                                                <?php if(!empty($calculnote['row'])){echo $calculnote['row'];}else {echo 'non noté';} ?>/5
                                             </div>
 
                                         </div>
