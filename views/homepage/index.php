@@ -50,7 +50,6 @@ include "views/templates/head.php"
                                 }
                             }
                             $notelliste = $notelliste->rowCount();
-                            echo $notelliste;
                             if($notelliste > 0){
                                 $calculnote['row'] = $calculnote['row'] / $notelliste;
                             }
