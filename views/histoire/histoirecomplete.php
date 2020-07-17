@@ -44,7 +44,7 @@ include "views/templates/head.php"
                             <div class="col-12 col-sm-6 text-center">
                                 Moyenne:
                             </div>
-                            <?php if (isset($_SESSION["id"]) && (isset($_SESSION["mail"]))) { ?>
+                            <?php if (isset($_SESSION["id"]) && (isset($_SESSION["mail"])) && $noteexist == 0) { ?>
                                 <div class="col-12 col-sm-6 text-center">
                                     <form method="POST">
                                         <label class="ligne" for="note">Choisir une note:</label>
@@ -62,7 +62,15 @@ include "views/templates/head.php"
                                     </form>
 
                                 </div>
-                            <?php } else { ?>
+                            <?php } elseif(isset($_SESSION["id"]) && (isset($_SESSION["mail"])) && $noteexist != 0)  { ?>
+                                <div class="col-12 col-sm-6 text-center ">
+                                    <div class="bg">
+                                    Merci d'avoir voté
+                                    </div>
+                                    
+
+                                </div>
+                                <?php } else { ?>
                                 <div class="col-12 col-sm-6 text-center ">
                                     <div class="bg">
                                     connectez-vous pour pouvoir voter

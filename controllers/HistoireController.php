@@ -160,9 +160,18 @@ function histoirecompleteAction()
     $listeparagraphe = $paragraphe ->listerParagraphe($connection, $histoireId);
     $photo = new Photo();
     $listephoto = $photo ->listerPhoto($connection, $histoireId);
+    $Note = new Note();
+    if(isset($_SESSION['id']) ){
+        $notelliste =$Note->verifNote($connection, $histoireId);
+        $noteexist = $notelliste->rowCount();
+    }
+
 
     if (isset($_POST['ajoutnote'])) {
-        echo $_POST['note'];
+        $note = $_POST['note'];
+        $noteid =$Note->trouverNote($connection, $note);
+        $noteid =  $noteid->fetch();
+        $Note->ajouterNote($connection, $noteid['id'],$histoireId );
     }
 
 
