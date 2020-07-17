@@ -51,6 +51,26 @@ function histoiremodifAction()
 
     session_start();
     if (isset($_SESSION['adminid'])) {
+        $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
+        $requestParams = explode('/', $requestUri);
+        $histoireId     = isset($requestParams[2]) ? $requestParams[2] : null;
+        $bdd        = new Bdd();
+        $connection = $bdd->getConnection();
+        $histoire       = new Histoire();
+        $titre = $histoire->trouverHistoire($connection, $histoireId);
+        $titre = $titre->fetch();
+        $paragraphe = new Paragraphe();
+        $position = 1;
+        $paragraphes1 = $paragraphe->trouverParagraphe($connection, $histoireId,$position);
+        $paragraphes1 = $paragraphes1->fetch();
+        $position = 2;
+        $paragraphes2 = $paragraphe->trouverParagraphe($connection, $histoireId,$position);
+        $paragraphes2 = $paragraphes2->fetch();
+        $position = 3;
+        $paragraphes3 = $paragraphe->trouverParagraphe($connection, $histoireId,$position);
+        $paragraphes3 = $paragraphes3->fetch();
+        
+        
         require('views/backoffice/histoiremodif.php');
     } else {
         header('Location:' . BASE_URL . 'user/connection');

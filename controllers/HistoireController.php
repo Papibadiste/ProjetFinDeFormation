@@ -97,7 +97,7 @@ function ajouterhistoireAction()
 
                     // La suite pour la paragraphe3
                     if (!empty($_POST['paragraphe3']) and !empty($_FILES['photop3'])) {
-
+                        $emplacement = 3;
                         $target_dir = "assets/imghistoire/";
                         $target_file = $target_dir . basename($_FILES['photop3']["name"]);
                         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

@@ -31,7 +31,8 @@ include "views/templates/head.php"
                             $position = 1;
                             $image = $photo->trouverPhoto($connection, $row['id']);
                             $image = $image->fetch();
-                            $text = $paragraphe->trouverParagraphe($connection, $row['id']);
+                            $position = 1 ;
+                            $text = $paragraphe->trouverParagraphe($connection, $row['id'],$position);
                             $text = $text->fetch();
                             $text = str_split($text['texte'], 185);
                             $auteur = $user->trouverAuteur($connection, $row['id_utilisateur']);

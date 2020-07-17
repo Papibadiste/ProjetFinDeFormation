@@ -13,4 +13,5 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo BASE_URL; ?>favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo BASE_URL; ?>favicon-16x16.png">
     <link rel="manifest" href="<?php echo BASE_URL; ?>site.webmanifest">
+    <meta name="robots" content="noindex">
 </head>

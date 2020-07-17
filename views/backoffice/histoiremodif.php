@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jeCPA</title>
-    <meta name="description" content="LETSEAT Le goût par l'image">
-
-    <link rel="icon" href="">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/styles.min.css">
-</head>
+<?php
+include "views/templates/headback.php"
+?>
 
 <body>
 
@@ -33,16 +25,7 @@
                             <div class="row">
                                 <div class="col-sm-6 col-12">
                                     <label class="ligne" for="titre">Titre:</label>
-                                    <input class="ligne" type="text" name="titre" id="titre" value="">
-                                </div>
-                                <div class="col-sm-6 col-12">
-                                    <label class="ligne" for="categorie">Catégorie:</label>
-                                    <select class="form-control-sm ligne" name="categorie" id="categorie">
-                                        <option selected disabled hidden>Catégorie</option>
-                                        <option value="Sport Collectif">Sport Collectif</option>
-                                        <option value="Sport Individuel">Sport Individuel</option>
-
-                                    </select>
+                                    <input class="ligne" type="text" name="titre" id="titre" value="<?php echo $titre['titre'] ?>">
                                 </div>
                             </div>
                         </div>
@@ -50,27 +33,24 @@
                         <div class="form-group">
                             <h3>Paragraphe1</h3>
                             <label class="ligne" for="paragraphe1">Texte du paragraphe1 (280 caractere max):</label> <br>
-                            <textarea class="ligne" name="paragraphe1" id="paragraphe1" rows="4" maxlength="280"></textarea>
-                            <label for="photop1">Choisir une image</label>
-                            <input type="file" class="form-control-file" id="photop1" name="photop1">
+                            <textarea class="ligne" name="paragraphe1" id="paragraphe1" rows="4" maxlength="280"><?php echo $paragraphes1['texte'] ?></textarea>
+
 
                         </div>
 
                         <div class="form-group">
                             <h3>Paragraphe2</h3>
                             <label class="ligne" for="paragraphe2">Texte du paragraphe2 (280 caractere max):</label> <br>
-                            <textarea class="ligne" name="paragraphe2" id="paragraphe2" rows="4" maxlength="280"></textarea>
-                            <label for="photop2">Choisir une image</label>
-                            <input type="file" class="form-control-file" id="photop2" name="photop2">
+                            <textarea class="ligne" name="paragraphe2" id="paragraphe2" rows="4" maxlength="280"><?php echo $paragraphes2['texte'] ?></textarea>
+
 
 
                         </div>
                         <div class="form-group">
                             <h3>Paragraphe3</h3>
                             <label class="ligne" for="paragraphe3">Texte du paragraphe3 (280 caractere max):</label> <br>
-                            <textarea class="ligne" name="paragraphe3" id="paragraphe3" rows="4" maxlength="280"></textarea>
-                            <label for="photop3">Choisir une image</label>
-                            <input type="file" class="form-control-file" id="photop3" name="photop3">
+                            <textarea class="ligne" name="paragraphe3" id="paragraphe3" rows="4" maxlength="280"><?php echo $paragraphes3['texte'] ?></textarea>
+
 
                         </div>
                         <div class="form-check">
