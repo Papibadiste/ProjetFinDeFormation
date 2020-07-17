@@ -6,7 +6,7 @@ spl_autoload_register(function ($class) {
 function ajouterhistoireAction()
 {
     session_start();
-    if (isset($_SESSION['id'])){   
+    if (isset($_SESSION['id'])) {
         if (isset($_POST['ajouthistoire'])) {
 
             if (!empty($_POST['titre']) and !empty($_POST['categorie']) and !empty($_POST['paragraphe1']) and !empty($_FILES['photop1']) and !empty($_POST['chek'])) {
@@ -123,8 +123,7 @@ function ajouterhistoireAction()
                         }
                     }
 
-                    $bravo ="bravo";
-               
+                    $bravo = "bravo";
                 } else {
                     $erreur = "veuillez changer le type d'image en jpg,png ou jpeg";
                 }
@@ -132,8 +131,8 @@ function ajouterhistoireAction()
                 $erreur = "veuillez remplir tous les champs";
             }
         }
-    }else{
-        header('Location:' . BASE_URL .'user/connection');
+    } else {
+        header('Location:' . BASE_URL . 'user/connection');
     }
     require('views/histoire/ajouterhistoire.php');
 }
@@ -147,31 +146,49 @@ function histoirecompleteAction()
     $bdd        = new Bdd();
     $connection = $bdd->getConnection();
     $histoire = new Histoire();
-    $infohistoire =$histoire->trouverHistoire($connection, $histoireId);
+    $infohistoire = $histoire->trouverHistoire($connection, $histoireId);
     $infohistoire = $infohistoire->fetch();
     $infohistoire['date_creation'] = DateTime::createFromFormat('Y-m-d', $infohistoire['date_creation']);
     $users = new Users();
     $auteur = $users->trouverAuteur($connection, $infohistoire['id_utilisateur']);
     $auteur = $auteur->fetch();
     $categoriec = new Categorie();
-    $categorie = $categoriec->recupCategorie($connection,$histoireId);
+    $categorie = $categoriec->recupCategorie($connection, $histoireId);
     $categorie = $categorie->fetch();
     $paragraphe = new Paragraphe();
-    $listeparagraphe = $paragraphe ->listerParagraphe($connection, $histoireId);
+    $listeparagraphe = $paragraphe->listerParagraphe($connection, $histoireId);
     $photo = new Photo();
-    $listephoto = $photo ->listerPhoto($connection, $histoireId);
+    $listephoto = $photo->listerPhoto($connection, $histoireId);
+    
     $Note = new Note();
-    if(isset($_SESSION['id']) ){
-        $notelliste =$Note->verifNote($connection, $histoireId);
-        $noteexist = $notelliste->rowCount();
+    $notelliste = $Note->listNote($connection, $histoireId);
+    $calculnote = 0 ;
+
+    if ($notelliste->rowCount() > 0) {
+
+        while ($liste = $notelliste->fetch(PDO::FETCH_BOTH)) {
+            $noteid = $Note->trouverViaIdNote($connection, $liste['id_note']);
+            $note =  $noteid->fetch();
+            $calculnote = $calculnote + $note['note'];
+           
+        }
+    }
+    $notefinal = $calculnote/$notelliste->rowCount();
+    
+
+
+    if (isset($_SESSION['id'])) {
+        $noteverif = $Note->verifNote($connection, $histoireId);
+        $noteexist = $noteverif->rowCount();
     }
 
 
     if (isset($_POST['ajoutnote'])) {
         $note = $_POST['note'];
-        $noteid =$Note->trouverNote($connection, $note);
+        $noteid = $Note->trouverNote($connection, $note);
         $noteid =  $noteid->fetch();
         $Note->ajouterNote($connection, $noteid['id'],$histoireId );
+        header('Location:' . BASE_URL . 'histoire/histoirecomplete/'.$histoireId );
     }
 
 

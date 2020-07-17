@@ -14,7 +14,7 @@ function connectionAction()
         if (!empty($_POST['email']) and !empty($_POST['Password'])) {
             $bdd        = new Bdd();
             $connection = $bdd->getConnection();
-            $admin = new admin();
+            $admin = new Admin();
             $reqmail = $admin->verifMail($connection, $email);
             $userexist = $reqmail->fetch();
             if ($userexist && password_verify($pass, $userexist['mdp'])) {
@@ -28,7 +28,7 @@ function connectionAction()
             $erreur = 'veuillez remplir tous les champs';
         }
     }
-    require('views\backoffice\connection.php');
+    require('views/backoffice/connection.php');
 }
 function listehistoireAction()
 {
@@ -40,7 +40,7 @@ function listehistoireAction()
         $histoire = new Histoire();
         $listehistoire = $histoire->listeHistoire($connection);
         $categorie = new Categorie();
-        require('views\backoffice\listehistoire.php');
+        require('views/backoffice/listehistoire.php');
     } else {
         header('Location:' . BASE_URL . 'user/connection');
     }
@@ -51,7 +51,7 @@ function histoiremodifAction()
 
     session_start();
     if (isset($_SESSION['adminid'])) {
-        require('views\backoffice\histoiremodif.php');
+        require('views/backoffice/histoiremodif.php');
     } else {
         header('Location:' . BASE_URL . 'user/connection');
     }
@@ -68,5 +68,5 @@ function supprimerhistoireAction()
     $connection = $bdd->getConnection();
     $histoire = new Histoire();
     $histoire->supprimerHistoire($connection, $histoireId);
-    require('views\backoffice\listehistoire.php');
+    require('views/backoffice/listehistoire.php');
 }

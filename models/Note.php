@@ -22,5 +22,17 @@ class Note
         
         return $reqNote;
     }
+    public function listNote($connection, $id_histoire){
+        $reqNote = $connection->prepare("SELECT * FROM utilisateur_histoire_note WHERE id_histoire = ? ");
+        $reqNote->execute(array($id_histoire));
+        
+        return $reqNote;
+    }
+    public function trouverViaIdNote($connection, $idnote){
+        $reqNote = $connection->prepare("SELECT * FROM note WHERE id = ? ");
+        $reqNote->execute(array($idnote));
+        
+        return $reqNote;
+    }
 
 }
