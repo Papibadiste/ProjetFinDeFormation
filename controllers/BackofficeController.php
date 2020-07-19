@@ -42,7 +42,7 @@ function listehistoireAction()
         $categorie = new Categorie();
         require('views/backoffice/listehistoire.php');
     } else {
-        header('Location:' . BASE_URL . 'user/connection');
+        header('Location:' . BASE_URL . 'backoffice/connection');
     }
 }
 
@@ -69,11 +69,20 @@ function histoiremodifAction()
         $position = 3;
         $paragraphes3 = $paragraphe->trouverParagraphe($connection, $histoireId,$position);
         $paragraphes3 = $paragraphes3->fetch();
+
+        if (isset($_POST['modifhistoire'])) {
+            $titreupdate =htmlspecialchars($_POST["titre"]);
+            
+            $histoire->updateHistoire($connection, $histoireId, $titreupdate);
+
+
+            header('Location:' . BASE_URL . 'backoffice/histoiremodif/'. $histoireId );
+        }
         
         
         require('views/backoffice/histoiremodif.php');
     } else {
-        header('Location:' . BASE_URL . 'user/connection');
+        header('Location:' . BASE_URL . 'backoffice/connection');
     }
 }
 
@@ -88,5 +97,5 @@ function supprimerhistoireAction()
     $connection = $bdd->getConnection();
     $histoire = new Histoire();
     $histoire->supprimerHistoire($connection, $histoireId);
-    require('views/backoffice/listehistoire.php');
+    header('Location:' . BASE_URL . 'backoffice/listehistoire');
 }

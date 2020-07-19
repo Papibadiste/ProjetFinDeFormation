@@ -37,7 +37,7 @@ include "views/templates/headback.php"
 
 
                         </div>
-
+                        <?php if (isset($paragraphes2['texte'])) { ?>
                         <div class="form-group">
                             <h3>Paragraphe2</h3>
                             <label class="ligne" for="paragraphe2">Texte du paragraphe2 (280 caractere max):</label> <br>
@@ -46,6 +46,8 @@ include "views/templates/headback.php"
 
 
                         </div>
+                        <?php } ?>
+                        <?php if (isset($paragraphes3['texte'])) { ?>
                         <div class="form-group">
                             <h3>Paragraphe3</h3>
                             <label class="ligne" for="paragraphe3">Texte du paragraphe3 (280 caractere max):</label> <br>
@@ -53,12 +55,13 @@ include "views/templates/headback.php"
 
 
                         </div>
+                        <?php } ?>
                         <div class="form-check">
                             <input type="checkbox" name="chek" class="form-check-input" id="Validation">
                             <label class="form-check-label" for="Validation">Je valide les changements</label>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" name="ajouthistoire" class="btn btn-valider">Valider</button>
+                            <button type="submit" name="modifhistoire" class="btn btn-valider">Valider</button>
                         </div>
                         <?php if (isset($erreur)) { ?>
                             <div class="d-flex justify-content-center ">

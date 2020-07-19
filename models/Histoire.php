@@ -39,6 +39,13 @@ class Histoire
         $req = $connection->prepare("DELETE FROM histoire  WHERE id= $histoireId ");
         $req->execute();
     }
+    public function updateHistoire($connection, $histoireId, $titre){
+        $req = $connection->prepare("UPDATE histoire SET  titre = :titre  WHERE id= $histoireId ");
+        $req->execute(array(
+            'titre' => $titre
+        ));
+    }
+
     
     
 }
