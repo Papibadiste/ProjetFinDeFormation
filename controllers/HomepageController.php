@@ -33,6 +33,8 @@ function indexAction()
     }else{
         $pageCourante =1;
     }
+    $pageS = $pageCourante+1;
+    $pageP = $pageCourante-1;
     $depart = ($pageCourante-1)*$histoireParPage;
     $listehistoire= $histoire->listeHistoirePourPagination($connection,$depart,$histoireParPage);
 

@@ -109,27 +109,42 @@ include "views/templates/head.php"
                     <div class="col-12 pagination d-flex justify-content-around">
                         <a href="<?php echo BASE_URL ?>Homepage/Index/1">
                             <button class="btn">|<</button>
-                        </a> <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $pageCourante-1; ?>">
+                        </a> 
+                        <?php if ($pageCourante == $histoireTotal) {
+                        echo '<a href="' . BASE_URL . 'Homepage/Index/1">
                             <button class="btn"><</button>
-                        </a>
-                        <div class="d-flex justify-content-around width">
-                            <?php
-                            for ($i = 1; $i <= $histoireTotal; $i++) {
-                                echo '<a class="lien" href="' . BASE_URL . 'Homepage/Index/' . $i . '">' . $i . '</a>';
-                            }
-                            ?>
-                        </div>
-                        <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $pageCourante+1 ?>">
-                            <button class="btn" button>></button>
-                        </a>
-                        <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $histoireTotal ?>">
-                            <button class="btn">>|</button>
-                        </a>
-
+                        </a>';
+                    } else {
+                        echo '<a href="' . BASE_URL . 'Homepage/Index/' . $pageP . '">
+                            <button class="btn" button><</button>
+                        </a>';
+                    } ?>
+                        </a> 
+                                        <div class="d-flex justify-content-around width">
+                                            <?php
+                                            for ($i = 1; $i <= $histoireTotal; $i++) {
+                                                echo '<a class="lien" href="' . BASE_URL . 'Homepage/Index/' . $i . '">' . $i . '</a>';
+                                            }
+                                            ?>
                     </div>
+                    <?php if ($pageCourante == $histoireTotal) {
+                        echo '<a href="' . BASE_URL . 'Homepage/Index/' . $histoireTotal . '">
+                            <button class="btn">></button>
+                        </a>';
+                    } else {
+                        echo '<a href="' . BASE_URL . 'Homepage/Index/' . $pageS . '">
+                            <button class="btn" button>></button>
+                        </a>';
+                    } ?>
+
+                    <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $histoireTotal ?>">
+                        <button class="btn">>|</button>
+                    </a>
 
                 </div>
+
             </div>
+        </div>
         </div>
 
         </div>
