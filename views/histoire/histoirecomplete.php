@@ -42,7 +42,7 @@ include "views/templates/head.php"
                     <div class="col-12 ">
                         <div class="row">
                             <div class="col-12 col-sm-6 text-center">
-                                Moyenne: <?php echo  $notefinal; ?>
+                                Moyenne: <?php if($notelliste->rowCount() != 0){echo  $notefinal;}else{ echo 'non noté';}  ?>
                             </div>
                             <?php if (isset($_SESSION["id"]) && (isset($_SESSION["mail"])) && $noteexist == 0) { ?>
                                 <div class="col-12 col-sm-6 text-center">

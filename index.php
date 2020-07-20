@@ -2,10 +2,11 @@
 
 // Récupération de la requête
 
-include "config/base_url.php";
 
+include "config/base_url.php";
+$_SERVER['REQUEST_URI']=substr($_SERVER['REQUEST_URI'], 1);
 // On sépare les paramètres de la requête
-$requestParams = explode('/', $requestUri);
+$requestParams = explode('/', $_SERVER['REQUEST_URI']);
 
 // Définition du contrôleur et de l'action
 $controller = (!empty($requestParams[0]) ? ucfirst($requestParams[0])  : 'Homepage'). 'Controller';

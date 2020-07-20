@@ -122,7 +122,7 @@ include "views/templates/head.php"
                         </a> 
                                         <div class="d-flex justify-content-around width">
                                             <?php
-                                            for ($i = 1; $i <= $histoireTotal; $i++) {
+                                            for ($i = 1; $i <= $pagesTotal; $i++) {
                                                 echo '<a class="lien" href="' . BASE_URL . 'Homepage/Index/' . $i . '">' . $i . '</a>';
                                             }
                                             ?>

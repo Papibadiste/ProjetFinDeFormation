@@ -23,7 +23,7 @@ function indexAction()
     $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
     $requestParams = explode('/', $requestUri);
     $pageCourante  = isset($requestParams[2]) ? $requestParams[2] : null;
-    $histoireParPage =1;
+    $histoireParPage =16;
     $histoireTotal= $histoire->listeHistoire($connection);
     $histoireTotal= $histoireTotal->rowCount();
     $pagesTotal=$histoireTotal/$histoireParPage;
