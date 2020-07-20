@@ -1,3 +1,4 @@
+
 .profil {
   background-color: $bleu;
   width: 100%;
@@ -36,4 +37,24 @@
       hyphens: auto;
     }
   }
+  .retour{
+    margin: 5px;
+        a{
+        background-color: $jaune;
+        color: $noir;
+        font-size: 20px;
+        border-radius: 10px;
+        
+        border: solid 2px $jaune;
+        padding: 5px;
+        
+    }
+    a:hover{
+        text-decoration: none;
+        font-weight: bold;
+        border: solid 2px $rouge;
+        color: $noir;
+        
+    }
+}
 }

@@ -10,11 +10,16 @@ include "views/templates/headback.php"
 
     <main class="container-fluid ">
         <div class="row">
+
+       
             <div class="col-12 profil">
-                <h2 class="text-center">
+            <div class="row">
+            <div class="col-12 d-flex justify-content-center retour"><a href="<?php echo BASE_URL; ?>user/deconnexion">Déconnexion</a></div>
+                <h2 class="col-12 text-center">
                     Liste des histoires
                 </h2>
-                <div class="row">
+                
+                    
                     <table class="table table-striped table-dark">
                         <tr>
                             <th scope='col'>Titre</th>
@@ -36,6 +41,7 @@ include "views/templates/headback.php"
                         </tr>
                        <?php } ?>
                     </table>
+
                 </div>
             </div>
         </div>

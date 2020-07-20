@@ -14,10 +14,10 @@ include "views/templates/headback.php"
 
     <main class="container-fluid ">
         <div class="row">
-
+        <div class="col-6 retour"><a href="<?php echo BASE_URL; ?>backoffice/listehistoire/">Retour à la liste</a></div>
 
             <div class="col-12 histoireback">
-                <div class="col-12 retour"><a href="<?php echo BASE_URL; ?>backoffice/listehistoire/">Retour à la liste</a></div>
+
                 <h2>Modifier une histoire</h2>
                 <div>
                     <form method="post" action="" enctype="multipart/form-data">

@@ -23,8 +23,8 @@ class Paragraphe
         
         return $texthistoire;
     }
-    public function updateParagraphe($connection, $histoireId, $paragraphe){
-        $req = $connection->prepare("UPDATE paragraphe SET  texte = :texte  WHERE id= $histoireId ");
+    public function updateParagraphe($connection, $histoireId, $paragraphe, $emplacement){
+        $req = $connection->prepare("UPDATE paragraphe SET  texte = :texte  WHERE id_histoire= $histoireId AND emplacement= $emplacement");
         $req->execute(array(
             'texte' => $paragraphe
         ));
