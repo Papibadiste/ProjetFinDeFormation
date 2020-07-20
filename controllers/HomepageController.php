@@ -5,6 +5,7 @@ spl_autoload_register(function ($class) {
 });
 
 
+
 function indexAction()
 {
     session_start();
@@ -12,13 +13,32 @@ function indexAction()
     $connection = $bdd->getConnection();
     $histoire = new Histoire();
     $nombrehistoire = $histoire->listeHistoire($connection);
-    $listehistoire = $histoire->listeHistoire($connection);
     $photo = new Photo();
     $paragraphe = new Paragraphe();
     $user = new Users();
     $categorie = new Categorie();
     $Note = new Note();
+
+    // pagination
+    $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
+    $requestParams = explode('/', $requestUri);
+    $pageCourante  = isset($requestParams[2]) ? $requestParams[2] : null;
+    $histoireParPage =1;
+    $histoireTotal= $histoire->listeHistoire($connection);
+    $histoireTotal= $histoireTotal->rowCount();
+    $pagesTotal=$histoireTotal/$histoireParPage;
+    $pagesTotal=ceil($pagesTotal);
+    if(!empty($pageCourante)){
+        $pageCourante  = intval($pageCourante);
+    }else{
+        $pageCourante =1;
+    }
+    $depart = ($pageCourante-1)*$histoireParPage;
+    $listehistoire= $histoire->listeHistoirePourPagination($connection,$depart,$histoireParPage);
+
+
     
 
     require('views/homepage/index.php');
+    
 }

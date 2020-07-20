@@ -3,6 +3,8 @@ spl_autoload_register(function ($class) {
     include 'models/' . $class . '.php';
 });
 
+
+
 function ajouterhistoireAction()
 {
     session_start();

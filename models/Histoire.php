@@ -45,7 +45,12 @@ class Histoire
             'titre' => $titre
         ));
     }
-
+    public function listeHistoirePourPagination($connection,$depart,$histoireParPage){
+        $reqhistoire = $connection->prepare("SELECT * FROM histoire ORDER BY id DESC LIMIT $depart,$histoireParPage");
+        $reqhistoire->execute();
+        
+        return $reqhistoire;
+    }
     
     
 }

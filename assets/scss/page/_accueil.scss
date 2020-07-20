@@ -1,4 +1,29 @@
 .accueil{
+    .pagination{
+        .btn{
+            color: $jaune;
+            background-color: $bleu;
+        }
+        .width{
+            width: 50%;
+        }
+        .lien{
+            background-color: $jaune;
+            color: $noir;
+            border-radius: 10px;
+            padding: 3px;
+            border: solid 2px $jaune;
+            
+        }
+        .lien:hover{
+            text-decoration: none;
+            font-weight: bold;
+            border: solid 2px $rouge;
+            color: $noir;
+            
+        }
+
+    }
     .recherche{
         background-color: $vert;
     }

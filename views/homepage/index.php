@@ -16,7 +16,7 @@ include "views/templates/head.php"
 
             <!-- systeme de recherche -->
             <div class="col-lg-2 col-12 recherche">
-                sdfsdf
+                A venir
             </div>
             <div class="col-lg-8 col-10 offset-1 ">
                 <div class="row">
@@ -31,8 +31,8 @@ include "views/templates/head.php"
                             $position = 1;
                             $image = $photo->trouverPhoto($connection, $row['id']);
                             $image = $image->fetch();
-                            $position = 1 ;
-                            $text = $paragraphe->trouverParagraphe($connection, $row['id'],$position);
+                            $position = 1;
+                            $text = $paragraphe->trouverParagraphe($connection, $row['id'], $position);
                             $text = $text->fetch();
                             $text = str_split($text['texte'], 185);
                             $auteur = $user->trouverAuteur($connection, $row['id_utilisateur']);
@@ -51,10 +51,10 @@ include "views/templates/head.php"
                                 }
                             }
                             $notelliste = $notelliste->rowCount();
-                            if($notelliste > 0){
+                            if ($notelliste > 0) {
                                 $calculnote['row'] = $calculnote['row'] / $notelliste;
                             }
-                            
+
                     ?>
 
 
@@ -65,7 +65,7 @@ include "views/templates/head.php"
                                             <?php echo $categorie2['sport']; ?>
                                         </div>
                                         <div class=" d-flex justify-content-center ">
-                                            <img class="img" src="<?php echo $image['source']; ?>" alt="">
+                                            <img class="img" src="<?php echo BASE_URL . $image['source']; ?>" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-9 col-12 d-flex justify-content-between flex-column">
@@ -73,7 +73,11 @@ include "views/templates/head.php"
                                         <div class="d-flex justify-content-between">
                                             <h3><?php echo $row['titre']; ?></h3>
                                             <div class="d-flex justify-content-center flex-column ">
-                                                <?php if(!empty($calculnote['row'])){echo $calculnote['row'];}else {echo 'non noté';} ?>/5
+                                                <?php if (!empty($calculnote['row'])) {
+                                                    echo $calculnote['row'];
+                                                } else {
+                                                    echo 'non noté';
+                                                } ?>/5
                                             </div>
 
                                         </div>
@@ -102,6 +106,27 @@ include "views/templates/head.php"
                     <?php   }
                     }
                     ?>
+                    <div class="col-12 pagination d-flex justify-content-around">
+                        <a href="<?php echo BASE_URL ?>Homepage/Index/1">
+                            <button class="btn">|<</button>
+                        </a> <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $pageCourante-1; ?>">
+                            <button class="btn"><</button>
+                        </a>
+                        <div class="d-flex justify-content-around width">
+                            <?php
+                            for ($i = 1; $i <= $histoireTotal; $i++) {
+                                echo '<a class="lien" href="' . BASE_URL . 'Homepage/Index/' . $i . '">' . $i . '</a>';
+                            }
+                            ?>
+                        </div>
+                        <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $pageCourante+1 ?>">
+                            <button class="btn" button>></button>
+                        </a>
+                        <a href="<?php echo BASE_URL ?>Homepage/Index/<?php echo $histoireTotal ?>">
+                            <button class="btn">>|</button>
+                        </a>
+
+                    </div>
 
                 </div>
             </div>
@@ -115,5 +140,6 @@ include "views/templates/head.php"
     ?>
 
 </body>
+<script src="<?php echo BASE_URL; ?>assets/js/pagination.js"></script>
 
 </html>
