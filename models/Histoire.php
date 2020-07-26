@@ -52,5 +52,11 @@ class Histoire
         return $reqhistoire;
     }
     
-    
+    public function trouverRandomHistoire($connection){
+         $reqhistoire = $connection->prepare("SELECT * FROM histoire ORDER BY RAND() LIMIT 1");
+        $reqhistoire->execute();
+        
+        
+        return $reqhistoire;
+    }
 }

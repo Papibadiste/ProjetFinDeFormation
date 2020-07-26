@@ -37,7 +37,7 @@
                     </nav>
 
                     <nav class="liens">
-                        <a href="">Histoire aleatoire</a>
+                        <a href="<?php echo BASE_URL; ?>histoire/histoirecomplete/<?php echo $randomhistoire['id']; ?>">Histoire aleatoire</a>
                     </nav>
                     <nav class="liens noneh2">
                         <a href="<?php echo BASE_URL; ?>user/deconnexion">Déconnexion</a>
@@ -62,7 +62,7 @@
                     </nav>
 
                     <nav class="liens">
-                        <a href="">Histoire aléatoire</a>
+                        <a href="<?php echo BASE_URL; ?>histoire/histoirecomplete/<?php echo $randomhistoire['id']; ?>">Histoire aléatoire</a>
                     </nav>
                 </div>
             <?php } ?>

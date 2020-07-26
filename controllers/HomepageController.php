@@ -4,6 +4,15 @@ spl_autoload_register(function ($class) {
     include 'models/' . $class . '.php';
 });
 
+function ramdomHistoire(){
+    $bdd        = new Bdd();
+    $connection = $bdd->getConnection();
+    $histoire = new Histoire();
+    $randomhistoire = $histoire->trouverRandomHistoire($connection);
+    $randomhistoire = $randomhistoire->fetch();
+    return $randomhistoire;
+}
+
 
 
 function indexAction()
@@ -18,12 +27,13 @@ function indexAction()
     $user = new Users();
     $categorie = new Categorie();
     $Note = new Note();
+    $randomhistoire = ramdomHistoire();
 
     // pagination
     $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
     $requestParams = explode('/', $requestUri);
     $pageCourante  = isset($requestParams[2]) ? $requestParams[2] : null;
-    $histoireParPage =1;
+    $histoireParPage =12;
     $histoireTotal= $histoire->listeHistoire($connection);
     $histoireTotal= $histoireTotal->rowCount();
     $pagesTotal=$histoireTotal/$histoireParPage;
@@ -37,6 +47,8 @@ function indexAction()
     $pageP = $pageCourante-1;
     $depart = ($pageCourante-1)*$histoireParPage;
     $listehistoire= $histoire->listeHistoirePourPagination($connection,$depart,$histoireParPage);
+
+  
 
 
     

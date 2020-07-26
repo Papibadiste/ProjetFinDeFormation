@@ -5,7 +5,7 @@
             background-color: $bleu;
         }
         .width{
-            width: 50%;
+            min-width: 20%;
         }
         .lien{
             background-color: $jaune;
@@ -26,6 +26,7 @@
     }
     .recherche{
         background-color: $vert;
+        min-height: 50vh;
     }
     .histoirevue{
         

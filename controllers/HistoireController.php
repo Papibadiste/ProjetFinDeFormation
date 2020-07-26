@@ -3,11 +3,19 @@ spl_autoload_register(function ($class) {
     include 'models/' . $class . '.php';
 });
 
-
+function ramdomHistoire(){
+    $bdd        = new Bdd();
+    $connection = $bdd->getConnection();
+    $histoire = new Histoire();
+    $randomhistoire = $histoire->trouverRandomHistoire($connection);
+    $randomhistoire = $randomhistoire->fetch();
+    return $randomhistoire;
+}
 
 function ajouterhistoireAction()
 {
     session_start();
+    $randomhistoire = ramdomHistoire();
     if (isset($_SESSION['id'])) {
         if (isset($_POST['ajouthistoire'])) {
 
@@ -142,6 +150,7 @@ function ajouterhistoireAction()
 function histoirecompleteAction()
 {
     session_start();
+    $randomhistoire = ramdomHistoire();
     $requestUri    = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
     $requestParams = explode('/', $requestUri);
     $histoireId     = isset($requestParams[2]) ? $requestParams[2] : null;
@@ -175,7 +184,10 @@ function histoirecompleteAction()
            
         }
     }
-    $notefinal = $calculnote/$notelliste->rowCount();
+    if (!empty($note)){
+        $notefinal = $calculnote/$notelliste->rowCount();
+    }
+
     
 
 

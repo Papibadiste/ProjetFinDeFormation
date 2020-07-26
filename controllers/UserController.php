@@ -4,9 +4,20 @@ spl_autoload_register(function ($class) {
     include 'models/' . $class . '.php';
 });
 
+function ramdomHistoire(){
+    $bdd        = new Bdd();
+    $connection = $bdd->getConnection();
+    $histoire = new Histoire();
+    $randomhistoire = $histoire->trouverRandomHistoire($connection);
+    $randomhistoire = $randomhistoire->fetch();
+    return $randomhistoire;
+}
+
 function inscriptionAction()
+
 {
     session_start();
+    $randomhistoire = ramdomHistoire();
     if (isset($_POST['forminscription'])) {
 
 
@@ -53,6 +64,7 @@ function inscriptionAction()
 function connectionAction()
 {
     session_start();
+    $randomhistoire = ramdomHistoire();
     if (isset($_POST['formconnection'])) {
 
         $email = htmlspecialchars($_POST['email']);
@@ -91,6 +103,7 @@ function deconnexionAction()
 function profilAction()
 {
     session_start();
+    $randomhistoire = ramdomHistoire();
     if (isset($_SESSION['id'])) {
         $bdd        = new Bdd();
         $connection = $bdd->getConnection();

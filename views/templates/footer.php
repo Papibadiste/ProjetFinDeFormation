@@ -1,17 +1,20 @@
 <footer>
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            
-            <div class="col-sm-3 col-12 flex ">
+
+            <div class="col-lg-3 col-sm-6 col-12 flex ">
                 <img class="img simplon" src="<?php echo BASE_URL; ?>assets\img\logo-simplon-stleo.jpg">
             </div>
-            
-            <div class="col-sm-5 col-12 ">
-                <div>
+
+            <div class="col-lg-5 col-sm-6 col-12 d-flex align-items-center justify-content-center ">
                 
-                </div>
+                    <h1 class=" text-center ">
+                        Sport Volt
+                    </h1>
+                
+
             </div>
-            <div class="col-sm-4 col-12 d-flex justify-content-end nonef">
+            <div class="col-lg-4 col-sm-12 col-12 d-flex justify-content-lg-end justify-content-center nonef">
                 <img class="img" src="<?php echo BASE_URL; ?>assets\img\multisport.png">
             </div>
 
