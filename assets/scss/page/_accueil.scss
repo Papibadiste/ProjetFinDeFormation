@@ -27,6 +27,13 @@
     .recherche{
         background-color: $vert;
         min-height: 50vh;
+        .suite{
+            background-color: $jaune;
+            color: $noir;
+            border-radius: 10px;
+            font-weight: bold;
+            border: solid 2px $rouge;
+        }
     }
     .histoirevue{
         
@@ -75,14 +82,15 @@
             color: $noir;
             border-radius: 10px;
             font-weight: bold;
-            border: solid 2px $rouge;
+            border: solid 2px $jaune;
             padding: 3px;
 
 
             
         }
-        .liens{
+        .liens:hover{
             text-decoration: none;
+            border: solid 2px $rouge;
             
             
         }

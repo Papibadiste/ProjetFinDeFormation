@@ -16,7 +16,7 @@ include "views/templates/head.php"
 
             <!-- systeme de recherche -->
             <div class="col-lg-2 col-12 recherche">
-                A venir
+                <div class="text-center suite"> A venir </div>
             </div>
             <div class="col-lg-8 col-10 offset-1 ">
                 <div class="row">
